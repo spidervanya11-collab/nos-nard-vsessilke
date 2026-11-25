@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7c3aed">
+<title>Nos Nard — Telegram</title>
+<style>
+:root{
+  --bg:#0b0714;--surface:rgba(25,17,43,.78);--surface2:#19112b;--text:#f7f2ff;
+  --muted:#b9a9d2;--accent:#a855f7;--accent2:#7c3aed;--border:rgba(192,132,252,.22);
+  --shadow:0 18px 50px rgba(0,0,0,.24);--glow:rgba(168,85,247,.16);
+}
+body.light{
+  --bg:#f6f1ff;--surface:rgba(255,255,255,.82);--surface2:#fff;--text:#24113d;
+  --muted:#705987;--accent:#8b35df;--accent2:#6d28d9;--border:rgba(109,40,217,.16);
+  --shadow:0 18px 50px rgba(86,45,130,.10);--glow:rgba(168,85,247,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;
+ transition:background .3s,color .3s;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:380px;height:380px;border-radius:50%;filter:blur(100px);opacity:.28;pointer-events:none;z-index:-1}
+body:before{background:#9333ea;top:-150px;left:-140px}body:after{background:#6d28d9;bottom:-170px;right:-140px}
+.wrap{width:min(920px,92%);margin:0 auto;padding:32px 0 42px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#c084fc,#6d28d9);display:grid;place-items:center;color:white;font-size:22px;box-shadow:0 8px 26px #7c3aed55}
+.theme{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:14px;padding:11px 14px;cursor:pointer;font-size:15px;transition:.2s}
+.theme:hover{transform:translateY(-2px)}
+.hero{text-align:center;padding:56px 10px 32px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--glow);color:var(--accent);padding:8px 13px;border-radius:100px;font-size:13px;font-weight:700}
+h1{font-size:clamp(34px,7vw,58px);line-height:1.04;margin:18px 0 14px;letter-spacing:-1.6px}
+.gradient{background:linear-gradient(100deg,#d8b4fe,#a855f7,#7c3aed);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:570px;margin:0 auto;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.card{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:23px;background:var(--surface);backdrop-filter:blur(16px);box-shadow:var(--shadow);padding:21px;display:flex;align-items:center;gap:17px;transition:transform .22s,border-color .22s}
+.card:hover{transform:translateY(-4px);border-color:#a855f755}
+.card:before{content:"";position:absolute;inset:auto -35px -50px auto;width:150px;height:150px;border-radius:50%;background:var(--glow);filter:blur(35px);pointer-events:none}
+.iconbox{width:58px;height:58px;flex-shrink:0;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#c084fc,#7c3aed);color:white;box-shadow:0 8px 24px #7c3aed33}
+.iconbox svg{width:27px;height:27px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.info{min-width:0;flex:1}
+.info h2{margin:0 0 6px;font-size:18px}
+.info p{margin:0;color:var(--muted);font-size:13px}
+.link{display:inline-flex;align-items:center;gap:7px;margin-top:13px;text-decoration:none;color:white;background:linear-gradient(135deg,#a855f7,#7c3aed);padding:9px 13px;border-radius:11px;font-size:13px;font-weight:750;transition:.2s}
+.link:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.footer{text-align:center;color:var(--muted);font-size:13px;margin:30px 0 0;line-height:1.6}
+.footer b{color:var(--accent)}
+@media(max-width:620px){.wrap{padding-top:22px}.hero{padding:42px 4px 24px}.grid{grid-template-columns:1fr;gap:13px}.card{padding:18px}.top .brand span{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">N</div><span>Nos Nard</span></div>
+    <button class="theme" id="themeToggle" aria-label="Переключить тему">☀️ Светлая тема</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="pill">✦ Официальные Telegram-сервисы</div>
+      <h1>Всё <span class="gradient">Nos Nard</span><br>в одном месте</h1>
+      <p>Выберите нужного бота — игровые функции, новости, поддержка и музыкальная дистрибуция доступны в Telegram.</p>
+    </section>
+    <section class="grid" aria-label="Telegram-боты Nos Nard">
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/><path d="M18 8h4M20 6v4"/></svg></div>
+        <div class="info"><h2>Агент Nos Nard</h2><p>Информация и возможности проекта</p><a class="link" href="https://t.me/agentNosNard_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="info"><h2>Донат</h2><p>Пополнение и игровые покупки</p><a class="link" href="https://t.me/catchdonat2_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><path d="M12 3 2 9l10 6 10-6-10-6Z"/><path d="M2 15l10 6 10-6M2 12l10 6 10-6"/></svg></div>
+        <div class="info"><h2>Шансы в лут-боксах</h2><p>Информация о шансах выпадения</p><a class="link" href="https://t.me/shansoflutbox_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 8h8M8 12h5"/></svg></div>
+        <div class="info"><h2>Служба поддержки</h2><p>Помощь и ответы на вопросы</p><a class="link" href="https://t.me/suporttcordnn2_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></div>
+        <div class="info"><h2>Новости</h2><p>Обновления и события проекта</p><a class="link" href="https://t.me/newscordnn2_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+      <article class="card">
+        <div class="iconbox"><svg viewBox="0 0 24 24"><path d="M3 18V5l18-2v13"/><path d="M3 18a3 3 0 1 0 6 0V8l12-2v12"/><path d="M15 18a3 3 0 1 0 6 0"/></svg></div>
+        <div class="info"><h2>Дистрибуция Nos Nard</h2><p>Музыкальная дистрибуция</p><a class="link" href="https://t.me/distibutionofnosnard_bot" target="_blank" rel="noopener">Открыть бота <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">Все сервисы в одном месте · <b>Nos Nard</b></footer>
+</div>
+<script>
+const toggle=document.getElementById('themeToggle');
+function setTheme(light){
+  document.body.classList.toggle('light',light);
+  toggle.textContent=light?'🌙 Тёмная тема':'☀️ Светлая тема';
+}
+toggle.addEventListener('click',()=>setTheme(!document.body.classList.contains('light')));
+setTheme(false);
+</script>
+</body>
+</html>
